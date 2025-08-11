@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Building2, Menu, Phone, Heart, User } from "lucide-react";
+import { Building2, Menu, Phone, Heart, User, ChevronDown } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -8,6 +8,12 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Navbar = () => {
   return (
@@ -22,18 +28,83 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#" className="text-foreground hover:text-primary transition-colors">
-              Buy
-            </a>
-            <a href="#" className="text-foreground hover:text-primary transition-colors">
-              Rent
-            </a>
-            <a href="#" className="text-foreground hover:text-primary transition-colors">
-              Sell
-            </a>
-            <a href="#" className="text-foreground hover:text-primary transition-colors">
-              Commercial
-            </a>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center text-foreground hover:text-primary transition-colors">
+                Buy <ChevronDown className="ml-1 h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-background border border-border">
+                <DropdownMenuItem>
+                  <a href="#" className="w-full">Residential</a>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <a href="#" className="w-full">Apartments</a>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <a href="#" className="w-full">Villas</a>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <a href="#" className="w-full">Plots</a>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center text-foreground hover:text-primary transition-colors">
+                Rent <ChevronDown className="ml-1 h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-background border border-border">
+                <DropdownMenuItem>
+                  <a href="#" className="w-full">Residential Rent</a>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <a href="#" className="w-full">Commercial Rent</a>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <a href="#" className="w-full">Co-living</a>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <a href="#" className="w-full">PG</a>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center text-foreground hover:text-primary transition-colors">
+                Sell <ChevronDown className="ml-1 h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-background border border-border">
+                <DropdownMenuItem>
+                  <a href="#" className="w-full">Post Property</a>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <a href="#" className="w-full">Free Valuation</a>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <a href="#" className="w-full">Price Trends</a>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center text-foreground hover:text-primary transition-colors">
+                Commercial <ChevronDown className="ml-1 h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-background border border-border">
+                <DropdownMenuItem>
+                  <a href="#" className="w-full">Office Space</a>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <a href="#" className="w-full">Retail Space</a>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <a href="#" className="w-full">Warehouse</a>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <a href="#" className="w-full">Industrial</a>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
             <a href="#" className="text-foreground hover:text-primary transition-colors">
               About
             </a>
