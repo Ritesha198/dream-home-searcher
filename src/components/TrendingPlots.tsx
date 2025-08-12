@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, TrendingUp, Calendar, IndianRupee } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import {
   Carousel,
   CarouselContent,
@@ -14,6 +15,7 @@ import trendingPlot2 from "@/assets/trending-plot-2.jpg";
 import trendingPlot3 from "@/assets/trending-plot-3.jpg";
 
 const TrendingPlots = () => {
+  const navigate = useNavigate();
   const trendingPlots = [
     {
       id: 1,
@@ -201,7 +203,12 @@ const TrendingPlots = () => {
                       </div>
                       
                       <div className="flex gap-1">
-                        <Button variant="outline" size="sm" className="flex-1 text-xs">
+                        <Button 
+                          variant="outline" 
+                          size="sm" 
+                          className="flex-1 text-xs"
+                          onClick={() => navigate(`/property/${plot.id}`)}
+                        >
                           Details
                         </Button>
                         <Button size="sm" className="flex-1 text-xs">
@@ -269,7 +276,12 @@ const TrendingPlots = () => {
                       </div>
                       
                       <div className="flex gap-1">
-                        <Button variant="outline" size="sm" className="flex-1 text-xs">
+                        <Button 
+                          variant="outline" 
+                          size="sm" 
+                          className="flex-1 text-xs"
+                          onClick={() => navigate(`/property/${plot.id}`)}
+                        >
                           Details
                         </Button>
                         <Button size="sm" className="flex-1 text-xs">
