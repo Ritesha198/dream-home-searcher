@@ -273,6 +273,134 @@ const PropertyDetail = () => {
                   </div>
                 </CardContent>
               </Card>
+
+              {/* Gallery */}
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold mb-4">Gallery</h3>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {["All", "Construction", "Amenities", "Elevation", "Neighbourhood", "Others", "Sample"].map((tab) => (
+                      <Button 
+                        key={tab} 
+                        variant={tab === "All" ? "default" : "outline"} 
+                        size="sm"
+                        className="text-xs"
+                      >
+                        {tab}
+                      </Button>
+                    ))}
+                  </div>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                    {property.images.concat(property.images).map((image, index) => (
+                      <div key={index} className="aspect-square overflow-hidden rounded-lg">
+                        <img 
+                          src={image} 
+                          alt={`Gallery ${index + 1}`}
+                          className="w-full h-full object-cover hover:scale-105 transition-transform cursor-pointer"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                  <div className="text-center">
+                    <Button variant="outline">Show More</Button>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Property Video */}
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold mb-4">Property Video</h3>
+                  <div className="relative aspect-video bg-gray-100 rounded-lg overflow-hidden">
+                    <iframe
+                      src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                      title="Property Video"
+                      className="w-full h-full"
+                      allowFullScreen
+                    />
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Project Location */}
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold mb-4">Project Location</h3>
+                  <div className="space-y-4">
+                    <div className="text-sm">
+                      <p className="font-medium">29°0'208.7"N 72°30'28...</p>
+                      <p className="text-muted-foreground">
+                        2245+333 Ahmedabad, Gujarat
+                      </p>
+                      <Button variant="link" className="p-0 h-auto text-primary text-sm">
+                        View larger map
+                      </Button>
+                    </div>
+                    <div 
+                      className="relative h-64 bg-gray-100 rounded-lg overflow-hidden cursor-pointer"
+                      onClick={() => window.open(`https://maps.google.com/?q=${property.location}`, '_blank')}
+                    >
+                      <iframe
+                        src={`https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=${encodeURIComponent(property.location)}`}
+                        className="w-full h-full border-0"
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        style={{ filter: 'grayscale(0.2)' }}
+                      />
+                      <div className="absolute inset-0 bg-black/5 hover:bg-black/10 transition-colors flex items-center justify-center">
+                        <div className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded text-sm font-medium">
+                          Click to open in Google Maps
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* What's Nearby */}
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold mb-4">What's Nearby</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                      <h4 className="font-semibold mb-3 flex items-center gap-2">
+                        <Building className="h-4 w-4" />
+                        Schools & Education
+                      </h4>
+                      <ul className="space-y-2 text-sm text-muted-foreground">
+                        <li>• Delhi Public School - 2.5 km</li>
+                        <li>• IIIT Ahmedabad - 5 km</li>
+                        <li>• Gujarat University - 8 km</li>
+                        <li>• Kendriya Vidyalaya - 3 km</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-3 flex items-center gap-2">
+                        <Car className="h-4 w-4" />
+                        Transportation
+                      </h4>
+                      <ul className="space-y-2 text-sm text-muted-foreground">
+                        <li>• Bopal Metro Station - 4 km</li>
+                        <li>• Ahmedabad Airport - 15 km</li>
+                        <li>• Bus Stop - 1 km</li>
+                        <li>• Railway Station - 12 km</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-3 flex items-center gap-2">
+                        <TreePine className="h-4 w-4" />
+                        Entertainment & Shopping
+                      </h4>
+                      <ul className="space-y-2 text-sm text-muted-foreground">
+                        <li>• Palladium Mall - 6 km</li>
+                        <li>• Acropolis Mall - 8 km</li>
+                        <li>• Karnavati Club - 7 km</li>
+                        <li>• Himalaya Mall - 5 km</li>
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
 
